@@ -1,0 +1,22 @@
+import type { SourcingListingSeed } from '../types.js'
+
+// `minutesAgo` is resolved to a real timestamp at seed time so the feed looks
+// freshly populated whenever the database is seeded.
+export const sourcingSeeds: SourcingListingSeed[] = [
+  { id: 'SRC-9000', type: 'WTS', product: 'Chanel Mini Flap Square', brand: 'Chanel', price: 3200, currency: 'GBP', condition: 'Excellent', party: '@ashamehta', partyVerified: true, source: 'Sourcing Floor', minutesAgo: 1, status: 'active', note: 'Black caviar, gold hw. Full set with receipt.' },
+  { id: 'SRC-9001', type: 'WTB', product: 'Dior Book Tote Medium', brand: 'Dior', price: 1500, currency: 'GBP', condition: 'Any', party: '@rohankapoor', partyVerified: true, source: 'Buyer Requests', minutesAgo: 2, status: 'active', note: 'Latte or grey preferred. Ready to pay today.' },
+  { id: 'SRC-9002', type: 'WTS', product: 'Louis Vuitton Neverfull MM', brand: 'Louis Vuitton', price: 1650, currency: 'EUR', condition: 'Very Good', party: '@nandini.rao', partyVerified: true, source: 'Sourcing Floor', minutesAgo: 4, status: 'active' },
+  { id: 'SRC-9003', type: 'WTS', product: 'Hermès Kelly 28 Retourne', brand: 'Hermès', price: 19500, currency: 'GBP', condition: 'Pristine', party: '@vikram.sethi', partyVerified: true, source: 'VIP Desk', minutesAgo: 6, status: 'active', note: 'Gold togo, PHW. Store fresh, 2024.' },
+  { id: 'SRC-9004', type: 'WTB', product: 'Gucci GG Marmont Camera', brand: 'Gucci', price: 700, currency: 'USD', condition: 'Any', party: '@arjun.malhotra', partyVerified: false, source: 'Buyer Requests', minutesAgo: 8, status: 'active' },
+  { id: 'SRC-9005', type: 'WTS', product: 'Bottega Veneta Cassette Padded', brand: 'Bottega Veneta', price: 2400, currency: 'EUR', condition: 'Pristine', party: '@farahkhan.luxe', partyVerified: true, source: 'Sourcing Floor', minutesAgo: 11, status: 'pending', note: 'On hold for buyer - accepting backups.' },
+  { id: 'SRC-9006', type: 'WTB', product: 'Chanel Classic Flap Medium', brand: 'Chanel', price: 6800, currency: 'USD', condition: 'Any', party: '@meera.iyer', partyVerified: true, source: 'Buyer Requests', minutesAgo: 14, status: 'active', note: 'Caviar only. Budget firm.' },
+  { id: 'SRC-9007', type: 'WTS', product: 'Dior Lady Dior Small', brand: 'Dior', price: 3900, currency: 'GBP', condition: 'Excellent', party: '@kabir.bhatia', partyVerified: true, source: 'Sourcing Floor', minutesAgo: 18, status: 'active' },
+  { id: 'SRC-9008', type: 'WTS', product: 'Fendi Peekaboo Mini', brand: 'Fendi', price: 2100, currency: 'EUR', condition: 'Good', party: '@leenathomas', partyVerified: false, source: 'Sourcing Floor', minutesAgo: 23, status: 'active' },
+  { id: 'SRC-9009', type: 'WTB', product: 'Hermès Birkin 25', brand: 'Hermès', price: 22000, currency: 'GBP', condition: 'Any', party: '@sanjay.deshmukh', partyVerified: true, source: 'VIP Desk', minutesAgo: 27, status: 'active', note: 'Neutral colour, any hardware. Serious buyer.' },
+  { id: 'SRC-9010', type: 'WTS', product: 'Gucci Horsebit 1955 Shoulder', brand: 'Gucci', price: 1450, currency: 'USD', condition: 'Excellent', party: '@ashamehta', partyVerified: false, source: 'Sourcing Floor', minutesAgo: 34, status: 'active' },
+  { id: 'SRC-9011', type: 'WTS', product: 'Celine Triomphe Shoulder', brand: 'Celine', price: 2600, currency: 'GBP', condition: 'Very Good', party: '@rohankapoor', partyVerified: true, source: 'Sourcing Floor', minutesAgo: 41, status: 'fulfilled' },
+  { id: 'SRC-9012', type: 'WTB', product: 'Louis Vuitton OnTheGo PM', brand: 'Louis Vuitton', price: 2200, currency: 'USD', condition: 'Any', party: '@nandini.rao', partyVerified: true, source: 'Buyer Requests', minutesAgo: 52, status: 'active' },
+  { id: 'SRC-9013', type: 'WTS', product: 'Prada Galleria Small', brand: 'Prada', price: 1900, currency: 'EUR', condition: 'Excellent', party: '@farahkhan.luxe', partyVerified: true, source: 'Sourcing Floor', minutesAgo: 68, status: 'active' },
+  { id: 'SRC-9014', type: 'WTB', product: 'Saint Laurent Loulou Puffer', brand: 'Saint Laurent', price: 1200, currency: 'GBP', condition: 'Any', party: '@meera.iyer', partyVerified: true, source: 'Buyer Requests', minutesAgo: 85, status: 'active' },
+  { id: 'SRC-9015', type: 'WTS', product: 'Chanel Boy Bag Medium', brand: 'Chanel', price: 5200, currency: 'GBP', condition: 'Very Good', party: '@sanjay.deshmukh', partyVerified: true, source: 'Sourcing Floor', minutesAgo: 96, status: 'expired' },
+]

@@ -1,0 +1,135 @@
+// KoshFlow — Prisma schema
+// Postgres-backed. Works with any provider (Neon, Supabase, Railway, local).
+// Neon note: DATABASE_URL is the pooled URL; DIRECT_URL is the direct URL used
+// for migrations. For local Postgres, set both to the same value.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Product {
+  id            String   @id
+  name          String
+  brand         String
+  category      String
+  sku           String   @unique
+  purchasePrice Int
+  sellingPrice  Int
+  stock         Int
+  status        String
+  condition     String
+  color         String
+  addedAt       DateTime
+  soldUnits30d  Int      @default(0)
+  imageHue      Int
+  createdAt     DateTime @default(now())
+
+  @@index([brand])
+  @@index([status])
+  @@index([category])
+}
+
+model Order {
+  id             String   @id
+  customer       String
+  customerHandle String
+  productName    String
+  brand          String
+  date           DateTime
+  amount         Int
+  profit         Int
+  status         String
+  channel        String
+  city           String
+  imageHue       Int
+
+  @@index([status])
+  @@index([brand])
+}
+
+model Supplier {
+  id                String               @id
+  name              String
+  handle            String
+  location          String
+  country           String
+  verified          Boolean
+  rating            Float
+  reviewCount       Int
+  productsAvailable Int
+  responseTime      String
+  memberSince       String
+  specialties       String[]
+  bio               String
+  fulfillmentRate   Int
+  avatarHue         Int
+
+  reviews  SupplierReview[]
+  listings MarketplaceListing[]
+}
+
+model SupplierReview {
+  id         String   @id
+  supplierId String
+  supplier   Supplier @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  author     String
+  rating     Int
+  date       DateTime
+  body       String
+
+  @@index([supplierId])
+}
+
+model MarketplaceListing {
+  id           String   @id
+  name         String
+  brand        String
+  category     String
+  price        Int
+  currency     String
+  supplierId   String
+  supplier     Supplier @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  supplierName String
+  availability String
+  verified     Boolean
+  condition    String
+  location     String
+  imageHue     Int
+
+  @@index([brand])
+  @@index([supplierId])
+}
+
+model SourcingListing {
+  id            String   @id
+  type          String
+  product       String
+  brand         String
+  price         Int
+  currency      String
+  condition     String
+  party         String
+  partyVerified Boolean
+  source        String
+  createdAt     DateTime
+  status        String
+  note          String?
+
+  @@index([type])
+  @@index([status])
+}
+
+// Seeded 12-month history that powers the analytics timeseries & KPI deltas.
+model MonthlyMetric {
+  idx     Int    @id
+  label   String
+  revenue Int
+  profit  Int
+  orders  Int
+}
