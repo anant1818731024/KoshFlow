@@ -14,8 +14,9 @@ import type { NewProductInput } from '@/hooks/useAppStore'
 // the standalone Express server unless VITE_API_URL overrides it.
 const configuredApiUrl = import.meta.env.VITE_API_URL as string | undefined
 export const API_BASE =
-  configuredApiUrl?.replace(/\/$/, '') ??
-  (import.meta.env.PROD ? '' : 'http://localhost:4000')
+  import.meta.env.PROD
+    ? ''
+    : configuredApiUrl?.replace(/\/$/, '') ?? 'http://localhost:4000'
 
 export class ApiError extends Error {
   status: number
