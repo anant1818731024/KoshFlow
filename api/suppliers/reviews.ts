@@ -1,5 +1,5 @@
-import { prisma } from '../../../server/src/db.js'
-import { serializeReview } from '../../../server/src/lib/serialize.js'
+import { prisma } from '../../server/src/db.js'
+import { serializeReview } from '../../server/src/lib/serialize.js'
 
 export default async function handler(_req: any, res: any) {
   try {

@@ -3,6 +3,17 @@
   "installCommand": "npm install --include=dev && npm install --prefix server --include=dev",
   "buildCommand": "npm --prefix server run prisma:generate && npm run build",
   "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/settings", "destination": "/index.html" },
+    { "source": "/dashboard", "destination": "/index.html" },
+    { "source": "/inventory", "destination": "/index.html" },
+    { "source": "/orders", "destination": "/index.html" },
+    { "source": "/marketplace", "destination": "/index.html" },
+    { "source": "/suppliers", "destination": "/index.html" },
+    { "source": "/source", "destination": "/index.html" },
+    { "source": "/analytics", "destination": "/index.html" },
+    { "source": "/assistant", "destination": "/index.html" }
+  ],
   "functions": {
     "api/[...path].ts": {
       "maxDuration": 30
