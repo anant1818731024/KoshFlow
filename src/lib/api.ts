@@ -10,10 +10,12 @@ import type {
 } from '@/types'
 import type { NewProductInput } from '@/hooks/useAppStore'
 
-// Base URL of the API. Configure with VITE_API_URL in a `.env` file.
+// Use the same-origin Vercel function in production; local development uses
+// the standalone Express server unless VITE_API_URL overrides it.
+const configuredApiUrl = import.meta.env.VITE_API_URL as string | undefined
 export const API_BASE =
-  (import.meta.env.VITE_API_URL as string | undefined)?.replace(/\/$/, '') ??
-  'http://localhost:4000'
+  configuredApiUrl?.replace(/\/$/, '') ??
+  (import.meta.env.PROD ? '' : 'http://localhost:4000')
 
 export class ApiError extends Error {
   status: number

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "installCommand": "npm install && npm install --prefix server --include=dev",
+  "buildCommand": "npm --prefix server run prisma:generate && npm run build",
+  "outputDirectory": "dist",
+  "functions": {
+    "api/[...path].ts": {
+      "maxDuration": 30
+    }
+  }
+}
